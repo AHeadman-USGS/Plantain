@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% from "macros/form_fields.html" import form_field %}
+
+
+{% block title %}Edit National Template{% endblock %}
+
+{% block content_title %}Edit National Template{% endblock %}
+
+{% block content %}
+<main>
+  <div class="container pt-5">
+      <div class="row pt-5">
+      <!-- sidebar -->
+      <div class="col-sm-3">
+        <nav id="toc" data-toggle="toc" class="sticky-left">
+          <h5 class="text-muted">Table of Contents</h5>
+        </nav>
+      </div>
+        <!-- main -->
+    <form action="{{ url_for('National.edit', slug=NationalRequired.slug) }}", method="post">
+     <div class="col-lg">
+         <h2><label></label>Title</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{form.title(style="width: 500px;")}}
+                </div>
+            </div>
+        <h2><label></label>Introduction</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{form.intro()}}
+                </div>
+            </div>
+
+        <h2><label></label>Introduction</label></h2>
+            <div class="form-group">
+
+                <div class="input-group col-lg">
+
+                    {{  form.intro()  }}
+                </div>
+            </div>
+        <h2><label>Scope</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+
+                    {{form.scope()}}
+                </div>
+            </div>
+         <h2><label>Organization</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+
+                    {{form.org()}}
+                </div>
+            </div>
+         <h2><label>Responsibilities</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{form.resp()}}
+                </div>
+            </div>
+         <div class="form-group">
+            <label class="col-md-offset-2 control-label" for="tags">Status</label>
+
+            <div class="input-group col-md-8 col-md-offset-2">
+                {{form.status(id="status", placeholder="Comma separated tags", class="form-control input-md", required="")}}
+            </div>
+         </div>
+            <br>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button type="submit" class="btn btn-default">Save</button>
+                <a class="btn" href="{{ url_for('wsc.index') }}">Cancel</a>
+            </div>
+        </div>
+     </div>
+    </form>
+
+    </div>
+  </div>
+  </div>
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name='intro', width = 800) }}
+    {{ ckeditor.config(name='scope', width = 800) }}
+    {{ ckeditor.config(name='org', width = 800) }}
+    {{ ckeditor.config(name='resp', width = 800) }}
+
+</main>
+{% endblock %}

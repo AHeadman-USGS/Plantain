@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ Project.slug }}{% endblock %}
+
+{% block content_title %}{{ Project.slug }}{% endblock %}
+
+
+
+{% block content %}
+<main>
+  <div class="container pt-5">
+      <div class="row pt-5">
+      <!-- sidebar -->
+      <div class="col-sm-3">
+        <nav id="toc" data-toggle="toc" class="sticky-top">
+          <h5 class="text-muted">Table of Contents</h5>
+        </nav>
+          <br>
+        {% if current_user.user_level() > 0 %}
+          <p><a href="{{ url_for('wsc.edit', slug=Project.slug)}}">Edit</a></p>
+        {% endif %}
+        {% if current_user.user_level() == 2 %}
+          <p><a href="{{ url_for('wsc.approve', slug=Project.slug)}}">Approve</a></p>
+        {% endif %}
+      </div>
+        <!-- main -->
+     <div class="col-lg">
+         <h1>{{ Project.title }}</h1>
+        <h2><label>Introduction</label></h2>
+    {{  NationalRequired.intro | safe }}
+         <font color="red">{{ Project.intro | safe }}</font>
+         <h2><label>Scope</label></h2>
+    {{  NationalRequired.scope | safe }}
+     <font color="red">{{ Project.scope | safe }}</font>
+         <h2><label>Organization</label></h2>
+    {{  NationalRequired.org  | safe}}
+     <font color="red">{{ Project.org | safe }}</font>
+         <h2><label>Responsibilities</label></h2>
+    {{  NationalRequired.resp  | safe }}
+         <font color="red">{{  Project.resp | safe }}</font>
+     </div>
+      </div>
+  </div>
+
+
+</main>
+{% endblock %}

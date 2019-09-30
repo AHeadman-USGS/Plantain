@@ -1,0 +1,40 @@
+<main>
+  <div class="container">
+    <!-- Explore -->
+    <h1 class="text-center my-5 pt-5">Explore Plans</h1>
+    <div class="input-group py-3">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+      <span class="input-group-btn">
+        <button class="btn btn-outline-success" type="button">Search</button>
+      </span>
+    </div>
+    <ul class="list-group my-2">
+        <li class="list-group-item">
+            <div class="d-flex justify-content-between">
+                <h5><a href="{{ url_for('National.index') }}">National Plan</a></h5>
+                <span class="badge badge-pill badge-success p-2">Finished</span>
+            </div>
+            <p class="text-muted mb-1">{{ National.created_timestamp }}</p>
+        </li>
+
+        {% for plan in plans %}
+        <li class="list-group-item">
+            <div class="d-flex justify-content-between">
+                <h5 class="mb-0"><a href="{{ url_for('wsc.detail', slug=plan.slug) }}">{{plan.title}}</a></h5>
+                {% if plan.status == 0 %}
+                <span class="badge badge-pill badge-success p-2">Finished</span>
+                {% elif plan.status == 1 %}
+                <span class="badge badge-pill badge-warning p-2">Submitted</span>
+                {% elif plan.status == 2 %}
+                <span class="badge badge-pill badge-danger p-2">Started</span>
+                {% endif %}
+            </div>
+
+            <p class="text-muted mb-1">{{ plan.modified_timestamp }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+    </div>
+</main>
