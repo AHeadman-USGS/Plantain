@@ -13,13 +13,6 @@ def _user_loader(user_id):
     return User.query.get(int(user_id))
 
 
-ACCESS = {
-    'USER': 0,
-    'WSC': 1,
-    'ADMIN': 2
-}
-
-
 def require_access(access_level):
     def decorator(f):
         @wraps(f)
@@ -30,6 +23,13 @@ def require_access(access_level):
             return f(*args, **kwargs)
         return decorated_function
     return decorator
+
+
+ACCESS = {
+    'USER': 0,
+    'WSC': 1,
+    'ADMIN': 2
+}
 
 
 class User(db.Model):
@@ -117,7 +117,6 @@ class NationalRequired(db.Model):  # only admin can post in this level.
     status = db.Column(db.SmallInteger, default=STATUS_DRAFT)
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     created_timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-    #modified_timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
