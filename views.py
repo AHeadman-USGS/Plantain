@@ -44,10 +44,10 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/national")
+@app.route("/National/")
 @login_required
 def national():
-    return render_template("/National/index.html")
+    return render_template("/national/index.html")
 
 
 @app.route("/wsc/create")

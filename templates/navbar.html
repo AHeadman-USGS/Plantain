@@ -23,7 +23,7 @@
           </li>
           {%  if current_user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('national') }}">QAP Master Template</a>
+            <a class="nav-link" href="{{url_for('National.index') }}">QAP Master Template</a>
           </li>
           {% if current_user.user_level() > 1 %}
           <li class="nav-item">
