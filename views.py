@@ -44,10 +44,11 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/National/")
+@app.route("/national/")
 @login_required
 def national():
-    return render_template("/national/index.html")
+    entry = models.NationalRequired.query.filter(models.NationalRequired.id == 1).first_or_404()
+    return render_template("/national/index.html", NationalRequired=entry)
 
 
 @app.route("/wsc/create")
