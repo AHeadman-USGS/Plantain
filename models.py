@@ -107,13 +107,89 @@ class NationalRequired(db.Model):  # only admin can post in this level.
     STATUS_DELETED = 3
 
     id = db.Column(db.Integer, primary_key=True)
-    slug = db.Column(db.String(100), unique=True)
-    title = db.Column(db.String(255), unique=True)
+    slug = db.Column(db.String(100))
+    title = db.Column(db.String(255))
     intro = db.Column(db.Text)  # this is boilerplate
     scope = db.Column(db.Text)  # this is boilerplate
     org = db.Column(db.Text)  # this is boilerplate
     resp = db.Column(db.Text)  # this is boilerplate
     qa_workflow = db.Column(db.Text)  # boilerplate + form
+    status = db.Column(db.SmallInteger, default=STATUS_DRAFT)
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    created_timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.generate_slug()
+
+    def generate_slug(self):
+        self.slug = ''
+        if self.id:
+            self.slug = slugify(self.title)
+
+    def __repr__(self):
+        return '<Entry: %s>' % self.id
+
+class National(db.Model):  # only admin can post in this level.
+    STATUS_APPROVED = 0   # public - can only be set by admin
+    STATUS_SUBMITTED = 1  # viewable by user/admin
+    STATUS_DRAFT = 2  # viewable by user
+    STATUS_DELETED = 3
+
+    id = db.Column(db.Integer, primary_key=True)
+    slug = db.Column(db.String(100))
+    title = db.Column(db.String(255))
+    intro = db.Column(db.Text)  # this is boilerplate
+    org = db.Column(db.Text)  # this is boilerplate
+    org_org = db.Column(db.Text)
+    resp = db.Column(db.Text)  # this is boilerplate
+    qa_workflow = db.Column(db.Text)  # boilerplate + form
+    facilities = db.Column(db.Text)
+    labs = db.Column(db.Text)
+    dq_management = db.Column(db.Text)
+    dq_planning = db.Column(db.Text)
+    dq_roles = db.Column(db.Text)
+    dq_workflows = db.Column(db.Text)
+    dq_wf_pro = db.Column(db.Text)
+    dq_wf_workplan = db.Column(db.Text)
+    dq_wf_project_dmp = db.Column(db.Text)
+    dq_wf_review = db.Column(db.Text)
+    dq_datasharing = db.Column(db.Text)
+    dq_mous = db.Column(db.Text)
+    dq_access = db.Column(db.Text)
+    dq_aquisition = db.Column(db.Text)
+    dq_aqu_roles = db.Column(db.Text)
+    dq_aqu_proc = db.Column(db.Text)
+    dq_aqu_proc_coll = db.Column(db.Text)
+    dq_aqu_proc_proc = db.Column(db.Text)
+    dq_aqu_proc_anal = db.Column(db.Text)
+    dq_doc = db.Column(db.Text)
+    dq_format = db.Column(db.Text)
+    dq_org = db.Column(db.Text)
+    dq_store = db.Column(db.Text)
+    dq_store_roles = db.Column(db.Text)
+    dq_store_repo = db.Column(db.Text)
+    dq_store_archive = db.Column(db.Text)
+    dq_pubs = db.Column(db.Text)
+    dq_pubs_roles = db.Column(db.Text)
+    dq_pubs_workflow = db.Column(db.Text)
+    dq_pubs_prop = db.Column(db.Text)
+    dq_pubs_release = db.Column(db.Text)
+    dq_pubs_cite = db.Column(db.Text)
+    dq_pubs_doi = db.Column(db.Text)
+    dq_pubs_meta = db.Column(db.Text)
+    dq_pubs_catalog = db.Column(db.Text)
+    qa_intro = db.Column(db.Text)
+    qa_field_data = db.Column(db.Text)
+    qa_pro_ts = db.Column(db.Text)
+    qa_app_ts = db.Column(db.Text)
+    qa_discrete = db.Column(db.Text)
+    qa_db_integrity = db.Column(db.Text)
+    qa_records = db.Column(db.Text)
+    qa_interpretive = db.Column(db.Text)
+    qa_training = db.Column(db.Text)
+    qa_terms = db.Column(db.Text)
+    qa_resources = db.Column(db.Text)
     status = db.Column(db.SmallInteger, default=STATUS_DRAFT)
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     created_timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
@@ -145,6 +221,52 @@ class Project(db.Model):
     org = db.Column(db.Text)
     resp = db.Column(db.Text)
     qa_workflow = db.Column(db.Text)
+    facilities = db.Column(db.Text)
+    labs = db.Column(db.Text)
+    dq_management = db.Column(db.Text)
+    dq_planning = db.Column(db.Text)
+    dq_roles = db.Column(db.Text)
+    dq_workflows = db.Column(db.Text)
+    dq_wf_pro = db.Column(db.Text)
+    dq_wf_workplan = db.Column(db.Text)
+    dq_wf_project_dmp = db.Column(db.Text)
+    dq_wf_review = db.Column(db.Text)
+    dq_datasharing = db.Column(db.Text)
+    dq_mous = db.Column(db.Text)
+    dq_access = db.Column(db.Text)
+    dq_aquisition = db.Column(db.Text)
+    dq_aqu_roles = db.Column(db.Text)
+    dq_aqu_proc = db.Column(db.Text)
+    dq_aqu_proc_coll = db.Column(db.Text)
+    dq_aqu_proc_proc = db.Column(db.Text)
+    dq_aqu_proc_anal = db.Column(db.Text)
+    dq_doc = db.Column(db.Text)
+    dq_format = db.Column(db.Text)
+    dq_org = db.Column(db.Text)
+    dq_store = db.Column(db.Text)
+    dq_store_roles = db.Column(db.Text)
+    dq_store_repo = db.Column(db.Text)
+    dq_store_archive = db.Column(db.Text)
+    dq_pubs = db.Column(db.Text)
+    dq_pubs_roles = db.Column(db.Text)
+    dq_pubs_workflow = db.Column(db.Text)
+    dq_pubs_prop = db.Column(db.Text)
+    dq_pubs_release = db.Column(db.Text)
+    dq_pubs_cite = db.Column(db.Text)
+    dq_pubs_doi = db.Column(db.Text)
+    dq_pubs_meta = db.Column(db.Text)
+    dq_pubs_catalog = db.Column(db.Text)
+    qa_intro = db.Column(db.Text)
+    qa_field_data = db.Column(db.Text)
+    qa_pro_ts = db.Column(db.Text)
+    qa_app_ts = db.Column(db.Text)
+    qa_discrete = db.Column(db.Text)
+    qa_db_integrity = db.Column(db.Text)
+    qa_records = db.Column(db.Text)
+    qa_interpretive = db.Column(db.Text)
+    qa_training = db.Column(db.Text)
+    qa_terms = db.Column(db.Text)
+    qa_resources = db.Column(db.Text)
     tech = db.Column(db.Text)
     data = db.Column(db.Text)
     sysadmin = db.Column(db.Text)

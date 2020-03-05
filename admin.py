@@ -3,7 +3,7 @@ from flask_admin import Admin, AdminIndexView, expose
 from flask_admin.contrib.sqla import ModelView
 from flask_admin.contrib.fileadmin import FileAdmin
 from app import app, db
-from models import Project, NationalRequired, User
+from models import Project, NationalRequired, User, National
 
 
 class AdminAuthentication:
