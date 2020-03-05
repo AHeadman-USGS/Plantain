@@ -27,6 +27,39 @@ class ProjectEntry(wtforms.Form):
         'Responsibilities',
         validators=[Optional()])
 
+    facilities = CKEditorField(
+        'Facilities',
+        validators=[Optional()])
+
+    labs = CKEditorField(
+        'Laboratories',
+        validators=[Optional()])
+
+    dq_management = CKEditorField(
+        'Data-Quality Management',
+        validators=[Optional()])
+    dq_planning = CKEditorField(
+        'Data-Quality Planning',
+        validators=[Optional()])
+    dq_roles = CKEditorField(
+        'Data-Quality Roles',
+        validators=[Optional()])
+    dq_workflows = CKEditorField(
+        'Data-Quality Workflows',
+        validators=[Optional()])
+    dq_wf_pro = CKEditorField(
+        'wf proposals',
+        validators=[Optional()])
+    dq_wf_workplan = CKEditorField(
+        'wf workplans',
+        validators=[Optional()])
+    dq_wf_project_dmp = CKEditorField(
+        'proj data management',
+        validators=[Optional()])
+    dq_wf_review = CKEditorField(
+        'proj reviews',
+        validators=[Optional()])
+
     status = wtforms.SelectField(
         'Status',
         choices=(

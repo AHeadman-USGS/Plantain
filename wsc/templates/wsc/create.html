@@ -8,23 +8,24 @@
 {% block content_title %}New Water Science Center Plan{% endblock %}
 
 {% block content %}
-<main>
-  <div class="container pt-5">
-      <div class="row pt-5">
+  <div class="container">
+      <div class="row">
       <!-- sidebar -->
       <div class="col-sm-3">
         <nav id="toc" data-toggle="toc" class="sticky-left">
-          <h5 class="text-muted">Table of Contents</h5>
+          <h5 class="text-muted">Table ofContents</h5>
         </nav>
       </div>
         <!-- main -->
-    <form action="{{ url_for('wsc.create') }}", method="post">
-     <div class="col-lg">
+
+     <div class="col-sm-9">
+         <form action="{{ url_for('wsc.create') }}", method="post">
+         <br><br><br>
          <h2><label>Title</label></h2>
          <div class="input-group col-lg">
              {{ form.title(style="width: 600px;") }}
-         </div>
-        <h2><label></label>Introduction</label></h2>
+         </div><br>
+        <h2><label>Introduction</label></h2>
             <div class="form-group">
 
                 <div class="input-group col-lg">
@@ -53,9 +54,46 @@
                     {{form.resp()}}
                 </div>
             </div>
+         <h2><label>Facilities</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{form.facilities()}}
+                </div>
+            </div>
+         <h2><label>Laboratories</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{form.labs()}}
+                </div>
+            </div>
+         <h2><label>Data-Quality Management</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{form.dq_management()}}
+                </div>
+            </div>
+         <h3><label>Planning</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{form.dq_planning()}}
+                </div>
+            </div>
+         <h4><label>Roles and Responsibilities</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{form.dq_roles()}}
+                </div>
+            </div>
+         <h4><label>Workflows</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{form.dq_workflows()}}
+                </div>
+            </div>
+
+
          <div class="form-group">
             <label class="col-md-offset-2 control-label" for="tags">Status</label>
-
             <div class="input-group col-md-8 col-md-offset-2">
                 {{form.status(id="status", placeholder="Comma separated tags", class="form-control input-md", required="")}}
             </div>
@@ -73,12 +111,16 @@
 
     </div>
   </div>
-  </div>
     {{ ckeditor.load() }}
     {{ ckeditor.config(name='intro', width = 800) }}
     {{ ckeditor.config(name='scope', width = 800) }}
     {{ ckeditor.config(name='org', width = 800) }}
     {{ ckeditor.config(name='resp', width = 800) }}
+    {{ ckeditor.config(name='facilities', width = 800) }}
+    {{ ckeditor.config(name='labs', width = 800) }}
+    {{ ckeditor.config(name='dq_management', width = 800) }}
+    {{ ckeditor.config(name='dq_planning', width = 800) }}
+    {{ ckeditor.config(name='dq_roles', width = 800) }}
+    {{ ckeditor.config(name='dq_workflows', width = 800) }}
 
-</main>
 {% endblock %}
