@@ -8,23 +8,27 @@
 {% block content_title %}Edit Water Science Center Plan{% endblock %}
 
 {% block content %}
-<main>
-  <div class="container pt-5">
-      <div class="row pt-5">
+  <div class="container">
+      <div class="row">
       <!-- sidebar -->
-      <div class="col-sm-3">
+      <div class="col-3">
         <nav id="toc" data-toggle="toc" class="sticky-left">
           <h5 class="text-muted">Table of Contents</h5>
         </nav>
       </div>
         <!-- main -->
-    <form action="{{ url_for('wsc.edit', slug=Project.slug) }}", method="post">
-     <div class="col-lg">
+
+     <div class="col-9">
+         <form action="{{ url_for('wsc.create') }}", method="post">
+         <br><br><br>
          <h2><label>Title</label></h2>
-         <div class="input-group py-3">
-             {{ form.title(style="width: 600px;") }}
-         </div>
-        <h2><label></label>Introduction</label></h2>
+             <div class="form-group">
+                <div class="input-group col-lg">
+                 {{ form.title(style="width: 800px;") }}
+                </div>
+            </div>
+
+        <h2><label>Introduction</label></h2>
             <div class="form-group">
 
                 <div class="input-group col-lg">
@@ -32,6 +36,7 @@
                     {{  form.intro()  }}
                 </div>
             </div>
+
         <h2><label>Scope</label></h2>
             <div class="form-group">
                 <div class="input-group col-lg col-md-offset-2">
@@ -39,6 +44,7 @@
                     {{form.scope()}}
                 </div>
             </div>
+
          <h2><label>Organization</label></h2>
             <div class="form-group">
                 <div class="input-group col-lg col-md-offset-2">
@@ -46,6 +52,7 @@
                     {{form.org()}}
                 </div>
             </div>
+
          <h2><label>Responsibilities</label></h2>
             <div class="form-group">
                 <div class="input-group col-lg col-md-offset-2">
@@ -53,32 +60,447 @@
                     {{form.resp()}}
                 </div>
             </div>
+
+         <h2><label>Facilities</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.facilities | safe  }}
+                    {{form.facilities()}}
+                </div>
+            </div>
+
+         <h2><label>Laboratories</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.labs | safe  }}
+                    {{form.labs()}}
+                </div>
+            </div>
+
+         <h2><label>Data-Quality Management</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_management | safe  }}
+                    {{form.dq_management()}}
+                </div>
+            </div>
+
+         <h3><label>Planning</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_planning | safe  }}
+                    {{form.dq_planning()}}
+                </div>
+            </div>
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_roles | safe  }}
+                    {{form.dq_roles()}}
+                </div>
+            </div>
+
+         <h4><label>Workflows</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_workflows | safe  }}
+                    {{form.dq_workflows()}}
+                </div>
+            </div>
+
+         <h5><label>Proposals</label></h5>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_wf_pro | safe  }}
+                    {{form.dq_wf_pro()}}
+                </div>
+            </div>
+
+        <h5><label>Workplans</label></h5>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_wf_workplan | safe  }}
+                    {{form.dq_wf_workplan()}}
+                </div>
+            </div>
+
+         <h5><label>Project Data Management Plans</label></h5>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_wf_project_dmp | safe  }}
+                    {{form.dq_wf_project_dmp()}}
+                </div>
+            </div>
+
+        <h5><label>Project Reviews</label></h5>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_wf_review | safe  }}
+                    {{form.dq_wf_review()}}
+                </div>
+            </div>
+
+         <h4><label>Data Sharing Agreements</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_datasharing | safe  }}
+                    {{form.dq_datasharing()}}
+                </div>
+            </div>
+
+        <h4><label>Memoranda of Understanding (MOUs)</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_mous | safe  }}
+                    {{form.dq_mous()}}
+                </div>
+            </div>
+
+        <h4><label>Access Controls/Copyrights</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_access | safe  }}
+                    {{form.dq_access()}}
+                </div>
+            </div>
+
+        <h3><label>Data Acquisition, Processing and Analysis</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_aquisition | safe  }}
+                    {{form.dq_aquisition()}}
+                </div>
+            </div>
+
+        <h4><label>Roles and Responsibilities</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_aqu_roles | safe  }}
+                    {{form.dq_aqu_roles()}}
+                </div>
+            </div>
+
+        <h4><label>Procedures and Methods</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_aqu_proc | safe  }}
+
+                    {{form.dq_aqu_proc()}}
+                </div>
+            </div>
+
+        <h5><label>Data Collection Procedures and Policies</label></h5>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_aqu_proc_coll | safe  }}
+                    {{form.dq_aqu_proc_coll()}}
+                </div>
+            </div>
+
+        <h5><label>Data Processing Procedures and Policies</label></h5>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_aqu_proc_proc | safe  }}
+                    {{form.dq_aqu_proc_proc()}}
+                </div>
+            </div>
+
+        <h5><label>Data Analysis Procedures and Policies</label></h5>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_aqu_proc_anal | safe  }}
+                    {{form.dq_aqu_proc_anal()}}
+                </div>
+            </div>
+
+        <h4><label>Documentation</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_doc | safe  }}
+                    {{form.dq_doc()}}
+                </div>
+            </div>
+
+        <h4><label>Data Formats</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_format | safe  }}
+                    {{form.dq_format()}}
+                </div>
+            </div>
+
+        <h4><label>Organization of Files/Data</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_org | safe  }}
+                    {{form.dq_org()}}
+                </div>
+            </div>
+
+        <h3><label>Data Preservation, Storage and Archive</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_store | safe  }}
+                    {{form.dq_store()}}
+                </div>
+            </div>
+
+        <h4><label>Roles and Responsibilities</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_store_roles | safe  }}
+                    {{form.dq_store_roles()}}
+                </div>
+            </div>
+
+        <h4><label>Repositories</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_store_repo | safe  }}
+                    {{form.dq_store_repo()}}
+                </div>
+            </div>
+
+        <h4><label>Archiving</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_store_archive | safe  }}
+                    {{form.dq_store_archive()}}
+                </div>
+            </div>
+
+        <h3><label>Publication/Sharing</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_pubs | safe  }}
+                    {{form.dq_pubs()}}
+                </div>
+            </div>
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_pubs_roles | safe  }}
+                    {{form.dq_pubs_roles()}}
+                </div>
+            </div>
+
+          <h4><label>Workflow</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_pubs_workflow | safe  }}
+                    {{form.dq_pubs_workflow()}}
+                </div>
+            </div>
+
+          <h4><label>Proprietary and Sensitive Data</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_pubs_prop | safe  }}
+                    {{form.dq_pubs_prop()}}
+                </div>
+            </div>
+
+          <h4><label>Dissemination/Release</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_pubs_release | safe  }}
+                    {{form.dq_pubs_release()}}
+                </div>
+            </div>
+
+         <h4><label>Data Citation</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_pubs_cite | safe  }}
+                    {{form.dq_pubs_cite()}}
+                </div>
+            </div>
+
+          <h4><label>Digital Object Identifiers</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_pubs_doi | safe  }}
+                    {{form.dq_pubs_doi()}}
+                </div>
+            </div>
+
+          <h4><label>Metadata/Documentation</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_pubs_meta | safe  }}
+                    {{form.dq_pubs_meta()}}
+                </div>
+            </div>
+
+          <h4><label>Data Catalogs</label></h4>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.dq_pubs_catalog | safe  }}
+                    {{form.dq_pubs_catalog()}}
+                </div>
+            </div>
+
+        <h2><label>Quality Assessment (Technical Reviews)</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_intro | safe  }}
+                    {{form.qa_intro()}}
+                </div>
+            </div>
+
+        <h3><label>Field Data Collection</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_field_data | safe  }}
+                    {{form.qa_field_data()}}
+                </div>
+            </div>
+
+        <h3><label>Provisional Time-Series Processing</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_pro_ts | safe  }}
+                    {{form.qa_pro_ts()}}
+                </div>
+            </div>
+
+         <h3><label>Approved Time-Series Data</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_app_ts | safe  }}
+                    {{form.qa_app_ts()}}
+                </div>
+            </div>
+
+         <h3><label>Discrete Data Processing</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_discrete | safe  }}
+                    {{form.qa_discrete()}}
+                </div>
+            </div>
+
+         <h3><label>Database Integrity</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_db_integrity | safe  }}
+                    {{form.qa_db_integrity()}}
+                </div>
+            </div>
+
+         <h3><label>Furished Records</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_records | safe  }}
+                    {{form.qa_records()}}
+                </div>
+            </div>
+
+         <h3><label>Interpretive Science</label></h3>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_interpretive | safe  }}
+                    {{form.qa_interpretive()}}
+                </div>
+            </div>
+
+                     <h2><label>Training</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_training | safe  }}
+                    {{form.qa_training()}}
+                </div>
+            </div>
+
+        <h2><label>Terms</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_terms | safe  }}
+                    {{form.qa_terms()}}
+                </div>
+            </div>
+
+         <h2><label>Resources</label></h2>
+            <div class="form-group">
+                <div class="input-group col-lg col-md-offset-2">
+                    {{   NationalRequired.qa_resources | safe  }}
+                    {{form.qa_resources()}}
+                </div>
+            </div>
+
+
          <div class="form-group">
             <label class="col-md-offset-2 control-label" for="tags">Status</label>
-
             <div class="input-group col-md-8 col-md-offset-2">
                 {{form.status(id="status", placeholder="Comma separated tags", class="form-control input-md", required="")}}
             </div>
          </div>
             <br>
-
         <div class="form-group">
             <div class="col-sm-offset-2">
-                <button type="submit" class="btn btn-default">Save</button>
-                <a class="btn" href="{{ url_for('wsc.index') }}">Cancel</a>
+                <button type="submit" class="btn btn-default">Create</button>
+                <a class="btn" href="{{ url_for('national.index') }}">Cancel</a>
             </div>
         </div>
-     </div>
     </form>
 
     </div>
   </div>
   </div>
     {{ ckeditor.load() }}
-    {{ ckeditor.config(name='intro', width=800) }}
-    {{ ckeditor.config(name='scope', width=800) }}
-    {{ ckeditor.config(name='org', width=800) }}
-    {{ ckeditor.config(name='resp', width=800) }}
+    {{ ckeditor.config(name='intro', width = 800) }}
+    {{ ckeditor.config(name='scope', width = 800) }}
+    {{ ckeditor.config(name='org', width = 800) }}
+    {{ ckeditor.config(name='resp', width = 800) }}
+    {{ ckeditor.config(name='facilities', width = 800) }}
+    {{ ckeditor.config(name='labs', width = 800) }}
+    {{ ckeditor.config(name='dq_management', width = 800) }}
+    {{ ckeditor.config(name='dq_planning', width = 800) }}
+    {{ ckeditor.config(name='dq_roles', width = 800) }}
+    {{ ckeditor.config(name='dq_workflows', width = 800) }}
+    {{ ckeditor.config(name='dq_wf_pro', width = 800) }}
+    {{ ckeditor.config(name='dq_wf_workplan', width = 800) }}
+    {{ ckeditor.config(name='dq_wf_project_dmp', width = 800) }}
+    {{ ckeditor.config(name='dq_wf_review', width = 800) }}
+    {{ ckeditor.config(name='dq_datasharing', width = 800) }}
+    {{ ckeditor.config(name='dq_mous', width = 800) }}
+    {{ ckeditor.config(name='dq_access', width = 800) }}
+    {{ ckeditor.config(name='dq_aquisition', width = 800) }}
+    {{ ckeditor.config(name='dq_aqu_roles', width = 800) }}
+    {{ ckeditor.config(name='dq_aqu_proc', width = 800) }}
+    {{ ckeditor.config(name='dq_aqu_proc_coll', width = 800) }}
+    {{ ckeditor.config(name='dq_aqu_proc_proc', width = 800) }}
+    {{ ckeditor.config(name='dq_aqu_proc_anal', width = 800) }}
+    {{ ckeditor.config(name='dq_doc', width = 800) }}
+    {{ ckeditor.config(name='dq_format', width = 800) }}
+    {{ ckeditor.config(name='dq_org', width = 800) }}
+    {{ ckeditor.config(name='dq_store', width = 800) }}
+    {{ ckeditor.config(name='dq_store_roles', width = 800) }}
+    {{ ckeditor.config(name='dq_store_repo', width = 800) }}
+    {{ ckeditor.config(name='dq_store_archive', width = 800) }}
+    {{ ckeditor.config(name='dq_pubs', width = 800) }}
+    {{ ckeditor.config(name='dq_pubs_roles', width = 800) }}
+    {{ ckeditor.config(name='dq_pubs_workflow', width = 800) }}
+    {{ ckeditor.config(name='dq_pubs_prop', width = 800) }}
+    {{ ckeditor.config(name='dq_pubs_release', width = 800) }}
+    {{ ckeditor.config(name='dq_pubs_cite', width = 800) }}
+    {{ ckeditor.config(name='dq_pubs_doi', width = 800) }}
+    {{ ckeditor.config(name='dq_pubs_meta', width = 800) }}
+    {{ ckeditor.config(name='dq_pubs_catalog', width = 800) }}
+    {{ ckeditor.config(name='qa_intro', width = 800) }}
+    {{ ckeditor.config(name='qa_field_data', width = 800) }}
+    {{ ckeditor.config(name='qa_pro_ts', width = 800) }}
+    {{ ckeditor.config(name='qa_app_ts', width = 800) }}
+    {{ ckeditor.config(name='qa_discrete', width = 800) }}
+    {{ ckeditor.config(name='qa_db_integrity', width = 800) }}
+    {{ ckeditor.config(name='qa_records', width = 800) }}
+    {{ ckeditor.config(name='qa_interpretive', width = 800) }}
+    {{ ckeditor.config(name='qa_training', width = 800) }}
+    {{ ckeditor.config(name='qa_terms', width = 800) }}
+    {{ ckeditor.config(name='qa_resources', width = 800) }}
 
-</main>
+
+
 {% endblock %}

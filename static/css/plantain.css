@@ -82,9 +82,10 @@ nav[data-toggle='toc'] {
   top: 100px;
 }
 
-/* table of contents - small screens */
-@media (max-width: 500px) {
+/* table of contents */
+@media (max-width: 4000px) {
   /* override stickyness so that the navigation does not follow scrolling */
+
   nav[data-toggle='toc'] {
     margin-bottom: 42px;
   }
@@ -98,9 +99,9 @@ nav[data-toggle='toc'] {
   */
   /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
 
-  nav[data-toggle='toc'] .nav .nav {
-    display: block;
-  }
+nav[data-toggle='toc'] .nav .nav {
+display: block;
+}
 
 }
 

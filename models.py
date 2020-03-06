@@ -130,6 +130,7 @@ class NationalRequired(db.Model):  # only admin can post in this level.
     def __repr__(self):
         return '<Entry: %s>' % self.id
 
+
 class National(db.Model):  # only admin can post in this level.
     STATUS_APPROVED = 0   # public - can only be set by admin
     STATUS_SUBMITTED = 1  # viewable by user/admin
@@ -270,12 +271,12 @@ class Project(db.Model):
     tech = db.Column(db.Text)
     data = db.Column(db.Text)
     sysadmin = db.Column(db.Text)
-    qa_intro = db.Column(db.Text)
-    qa_workflow = db.Column(db.Text)
-    qa_proposal = db.Column(db.Text)
-    qa_plans = db.Column(db.Text)
-    qa_review = db.Column(db.Text)
-    dm_plan = db.Column(db.Text)
+    qa_intro = db.Column(db.Text)  # possible duplicate
+    qa_workflow = db.Column(db.Text)  # possible duplicate
+    qa_proposal = db.Column(db.Text)  # drop this field
+    qa_plans = db.Column(db.Text)  #drop it too.
+    qa_review = db.Column(db.Text)  # yep, this one also
+    dm_plan = db.Column(db.Text)  #not using this one.
     status = db.Column(db.SmallInteger, default=STATUS_DRAFT)
     created_timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     modified_timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
