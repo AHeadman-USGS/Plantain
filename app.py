@@ -6,7 +6,6 @@ from flask_ckeditor import CKEditor
 from flask_login import LoginManager, current_user
 from flask_bcrypt import Bcrypt
 
-
 from config import Config
 
 app = Flask(__name__, template_folder='templates')

@@ -271,8 +271,6 @@ class Project(db.Model):
     tech = db.Column(db.Text)
     data = db.Column(db.Text)
     sysadmin = db.Column(db.Text)
-    qa_intro = db.Column(db.Text)  # possible duplicate
-    qa_workflow = db.Column(db.Text)  # possible duplicate
     qa_proposal = db.Column(db.Text)  # drop this field
     qa_plans = db.Column(db.Text)  #drop it too.
     qa_review = db.Column(db.Text)  # yep, this one also

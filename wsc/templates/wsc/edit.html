@@ -20,8 +20,8 @@
         <!-- main -->
 
      <div class="col-9">
-         <form action="{{ url_for('wsc.create') }}", method="post">
-         <h2 data-toc-skip><label>Title</label></h2data-toc-skip>
+         <form action="{{ url_for('wsc.edit', slug=Project.slug) }}", method="post">
+         <h2 data-toc-skip><label>Title</label></h2>
              <div class="form-group">
                 <div class="input-group col-lg">
                  {{ form.title(style="width: 800px;") }}

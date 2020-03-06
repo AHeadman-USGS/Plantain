@@ -2,13 +2,13 @@ import os
 from flask import Blueprint, flash, g, redirect, render_template, request, url_for
 from app import app, db
 from flask_login import login_required
-from models import NationalRequired, ACCESS, require_access
-from national.forms import NationalEntry
+from models import NationalRequired, ACCESS, require_access, National
+from national.forms import NationalEntry, NationalMaster
 
 natl = Blueprint('national', __name__, template_folder='templates')
 
 def get_entry_or_404(slug, author=None):
-    query = NationalRequired.query.filter(NationalRequired.slug == slug)
+    query = National.query.filter(National.slug == slug)
     return query.first_or_404()
 
 
@@ -29,17 +29,17 @@ def detail(slug):
 @require_access(ACCESS['ADMIN'])
 def create():
     if request.method == 'POST':
-        form = NationalEntry(request.form)
+        form = NationalMaster(request.form)
         if form.validate():
-            entry = form.save_entry(NationalRequired())
+            entry = form.save_entry(National())
             db.session.add(entry)
             db.session.commit()
-            flash('Entry "%s" created successfully.' % NationalRequired.id, 'success')
+            flash('Entry "%s" created successfully.' % National.id, 'success')
             return redirect(url_for('index'))
     else:
-        form = NationalEntry()
+        form = NationalMaster()
 
-    return render_template('national/create.html', form=form)
+    return render_template('national/create_new.html', form=form)
 
 
 @natl.route('/<slug>/edit', methods=['GET','POST'])
@@ -48,12 +48,12 @@ def create():
 def edit(slug):
     entry = get_entry_or_404(slug)
     if request.method == 'POST':
-        form = NationalEntry(request.form, obj=entry)
+        form = NationalMaster(request.form, obj=entry)
         entry = form.save_entry(entry)
         db.session.add(entry)
         db.session.commit()
         flash('Entry "%s" update.' % entry.title, 'success')
-        return redirect(url_for('wsc.detail', slug=entry.slug))
+        return redirect(url_for('national.detail', slug=entry.slug))
     else:
         form = NationalEntry(obj=entry)
 

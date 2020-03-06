@@ -50,5 +50,6 @@ class StaticFileAdmin(AdminAuthentication, FileAdmin):
 
 admin.add_view(UserModelView(User, db.session))
 admin.add_view(BaseModelView(NationalRequired, db.session))
+#admin.add_view(BaseModelView(National, db.session))
 admin.add_view(ProjectModelView(Project, db.session))
 admin.add_view(StaticFileAdmin(app.config['STATIC_DIR'], '/static/', name="Static Files"))

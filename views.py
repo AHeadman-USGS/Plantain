@@ -47,7 +47,7 @@ def contact():
 @app.route("/national/")
 @login_required
 def national():
-    entry = models.NationalRequired.query.filter(models.NationalRequired.id == 1).first_or_404()
+    entry = models.National.query.filter(models.National.id == 1).first_or_404()
     return render_template("/national/index.html", NationalRequired=entry)
 
 
