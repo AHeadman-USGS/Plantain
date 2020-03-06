@@ -27,21 +27,211 @@
      <div class="col-lg">
          <h1>{{ Project.title }}</h1>
         <h2><label>Introduction</label></h2>
-    {{  NationalRequired.intro | safe }}
-         <font color="red">{{ Project.intro | safe }}</font>
-         <h2><label>Scope</label></h2>
-    {{  NationalRequired.scope | safe }}
-     <font color="red">{{ Project.scope | safe }}</font>
+            {{  NationalRequired.intro | safe }}
+            <font color="red">{{ Project.intro | safe }}</font>
+
+        <h2><label>Scope</label></h2>
+            {{  NationalRequired.scope | safe }}
+            <font color="red">{{ Project.scope | safe }}</font>
+
          <h2><label>Organization</label></h2>
-    {{  NationalRequired.org  | safe}}
-     <font color="red">{{ Project.org | safe }}</font>
+            {{  NationalRequired.org  | safe}}
+            <font color="red">{{ Project.org | safe }}</font>
+
          <h2><label>Responsibilities</label></h2>
-    {{  NationalRequired.resp  | safe }}
-         <font color="red">{{  Project.resp | safe }}</font>
+            {{  NationalRequired.resp  | safe }}
+            <font color="red">{{  Project.resp | safe }}</font>
+
+         <h2><label>Facilities</label></h2>
+            {{   NationalRequired.facilities | safe  }}
+            <font color="red">{{ Project.facilities| safe }}</font>
+
+         <h2><label>Laboratories</label></h2>
+             {{   NationalRequired.labs | safe  }}
+            <font color="red">{{ Project.labs| safe }}</font>
+
+         <h2><label>Data-Quality Management</label></h2>
+            {{   NationalRequired.dq_management | safe  }}
+            <font color="red">{{ Project.dq_management| safe }}</font>
+
+         <h3><label>Planning</label></h3>
+            {{   NationalRequired.dq_planning | safe  }}
+            <font color="red">{{ Project.dq_planning| safe }}</font>
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            {{   NationalRequired.dq_roles | safe  }}
+            <font color="red">{{ Project.dq_roles| safe }}</font>
+
+         <h4><label>Workflows</label></h4>
+            {{   NationalRequired.dq_workflows | safe  }}
+            <font color="red">{{ Project.dq_workflows| safe }}</font>
+
+         <h5><label>Proposals</label></h5>
+            {{   NationalRequired.dq_wf_pro | safe  }}
+            <font color="red">{{ Project.dq_wf_pro| safe }}</font>
+
+         <h5><label>Workplans</label></h5>
+            {{   NationalRequired.dq_wf_workplan | safe  }}
+            <font color="red">{{ Project.dq_wf_workplan| safe }}</font>
+
+         <h5><label>Project Data Management Plans</label></h5>
+            {{   NationalRequired.dq_wf_project_dmp | safe  }}
+            <font color="red">{{ Project.dq_wf_project_dmp| safe }}</font>
+
+         <h5><label>Project Reviews</label></h5>
+            {{   NationalRequired.dq_wf_review | safe  }}
+            <font color="red">{{ Project.dq_wf_review| safe }}</font>
+
+         <h4><label>Data Sharing Agreements</label></h4>
+            {{   NationalRequired.dq_datasharing | safe  }}
+            <font color="red">{{ Project.dq_datasharing| safe }}</font>
+
+         <h4><label>Memoranda of Understanding (MOUs)</label></h4>
+            {{   NationalRequired.dq_mous | safe  }}
+            <font color="red">{{ Project.dq_mous| safe }}</font>
+
+         <h4><label>Access Controls/Copyright</label></h4>
+            {{   NationalRequired.dq_access | safe  }}
+            <font color="red">{{ Project.dq_access| safe }}</font>
+
+         <h3><label>Data Acquisition, Processing and Analysis</label></h3>
+            {{   NationalRequired.dq_aquisition | safe  }}
+            <font color="red">{{ Project.dq_aquisition| safe }}</font>
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            {{   NationalRequired.dq_aqu_roles | safe  }}
+            <font color="red">{{ Project.dq_aqu_roles| safe }}</font>
+
+        <h4><label>Procedures and Methods</label></h4>
+            {{   NationalRequired.dq_aqu_proc | safe  }}
+            <font color="red">{{ Project.dq_aqu_proc| safe }}</font>
+
+         <h5><label>Data Collection Procedures and Policies</label></h5>
+            {{   NationalRequired.dq_aqu_proc_coll | safe  }}
+            <font color="red">{{ Project.dq_aqu_proc_coll| safe }}</font>
+
+          <h5><label>Data Processing Procedures and Policies</label></h5>
+            {{   NationalRequired.dq_aqu_proc_proc | safe  }}
+            <font color="red">{{ Project.dq_aqu_proc_proc| safe }}</font>
+
+          <h5><label>Data Analysis Procedures and Policies</label></h5>
+            {{   NationalRequired.dq_aqu_proc_anal | safe  }}
+            <font color="red">{{ Project.dq_aqu_proc_anal| safe }}</font>
+
+          <h4><label>Documentation</label></h4>
+            {{   NationalRequired.dq_doc | safe  }}
+            <font color="red">{{ Project.dq_doc| safe }}</font>
+
+         <h4><label>Data Formats</label></h4>
+            {{   NationalRequired.dq_format | safe  }}
+            <font color="red">{{ Project.dq_format| safe }}</font>
+
+         <h4><label>Organization of Files/Data</label></h4>
+            {{   NationalRequired.dq_org | safe  }}
+            <font color="red">{{ Project.dq_org| safe }}</font>
+
+         <h3><label>Data Preservation, Storage and Archive</label></h3>
+            {{   NationalRequired.dq_store | safe  }}
+            <font color="red">{{ Project.dq_store| safe }}</font>
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            {{   NationalRequired.dq_store_roles | safe  }}
+            <font color="red">{{ Project.dq_store_roles| safe }}</font>
+
+         <h4><label>Repositories</label></h4>
+            {{   NationalRequired.dq_store_repo | safe  }}
+            <font color="red">{{ Project.dq_store_repo| safe }}</font>
+
+         <h4><label>Archiving</label></h4>
+            {{   NationalRequired.dq_store_archive | safe  }}
+            <font color="red">{{ Project.dq_store_archive| safe }}</font>
+
+         <h3><label>Publication/Sharing</label></h3>
+            {{   NationalRequired.dq_pubs | safe  }}
+            <font color="red">{{ Project.dq_pubs| safe }}</font>
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            {{   NationalRequired.dq_pubs_roles | safe  }}
+            <font color="red">{{ Project.dq_pubs_roles| safe }}</font>
+
+         <h4><label>Workflow</label></h4>
+            {{   NationalRequired.dq_pubs_workflow | safe  }}
+            <font color="red">{{ Project.dq_pubs_workflow| safe }}</font>
+
+         <h4><label>Proprietary and Sensitive Data</label></h4>
+            {{   NationalRequired.dq_pubs_prop | safe  }}
+            <font color="red">{{ Project.dq_pubs_prop| safe }}</font>
+
+         <h4><label>Dissemination/Release</label></h4>
+            {{   NationalRequired.dq_pubs_release | safe  }}
+            <font color="red">{{ Project.dq_pubs_release| safe }}</font>
+
+         <h4><label>Data Citation</label></h4>
+            {{   NationalRequired.dq_pubs_cite | safe  }}
+            <font color="red">{{ Project.dq_pubs_cite| safe }}</font>
+
+         <h4><label>Digital Object Identifiers</label></h4>
+            {{   NationalRequired.dq_pubs_doi | safe  }}
+            <font color="red">{{ Project.dq_pubs_doi| safe }}</font>
+
+         <h4><label>Metadata/Documentation</label></h4>
+            {{   NationalRequired.dq_pubs_meta | safe  }}
+            <font color="red">{{ Project.dq_pubs_meta| safe }}</font>
+
+         <h4><label>Data Catalogs</label></h4>
+            {{   NationalRequired.dq_pubs_catalog | safe  }}
+            <font color="red">{{ Project.dq_pubs_catalog| safe }}</font>
+
+         <h2><label>Quality Assessment</label></h2>
+            {{   NationalRequired.qa_intro | safe  }}
+            <font color="red">{{ Project.qa_intro| safe }}</font>
+
+         <h3><label>Field Data Collection</label></h3>
+            {{   NationalRequired.qa_field_data | safe  }}
+            <font color="red">{{ Project.qa_field_data| safe }}</font>
+
+         <h3><label>Provisional Time-Series Processing</label></h3>
+            {{   NationalRequired.qa_pro_ts | safe  }}
+            <font color="red">{{ Project.qa_pro_ts| safe }}</font>
+
+         <h3><label>Approved Time-Series Data</label></h3>
+            {{   NationalRequired.qa_app_ts | safe  }}
+            <font color="red">{{ Project.qa_app_ts| safe }}</font>
+
+         <h3><label>Discrete Data Processing</label></h3>
+            {{   NationalRequired.qa_discrete | safe  }}
+            <font color="red">{{ Project.qa_discrete| safe }}</font>
+
+         <h3><label>Database Integrity</label></h3>
+            {{   NationalRequired.qa_db_integrity | safe  }}
+            <font color="red">{{ Project.qa_db_integrity| safe }}</font>
+
+         <h3><label>Furnished Records</label></h3>
+            {{   NationalRequired.qa_records | safe  }}
+            <font color="red">{{ Project.qa_records| safe }}</font>
+
+         <h3><label>Interpretive Science</label></h3>
+            {{   NationalRequired.qa_interpretive | safe  }}
+            <font color="red">{{ Project.qa_interpretive| safe }}</font>
+
+         <h2><label>Training</label></h2>
+            {{   NationalRequired.qa_training | safe  }}
+            <font color="red">{{ Project.qa_training| safe }}</font>
+
+         <h2><label>Terms</label></h2>
+            {{   NationalRequired.qa_terms | safe  }}
+            <font color="red">{{ Project.qa_terms| safe }}</font>
+
+         <h2><label>Resources</label></h2>
+            {{   NationalRequired.qa_resources | safe  }}
+            <font color="red">{{ Project.qa_resources| safe }}</font>
+
+
 
      </div>
       </div>
   </div>
+
 
 
 </main>

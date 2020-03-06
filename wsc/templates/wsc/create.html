@@ -8,20 +8,20 @@
 {% block content_title %}New Water Science Center Plan{% endblock %}
 
 {% block content %}
-  <div class="container">
-      <div class="row">
+  <div class="container pt-5">
+      <div class="row pt-5">
       <!-- sidebar -->
       <div class="col-3">
-        <nav id="toc" data-toggle="toc" class="sticky-left">
+        <nav id="toc" data-toggle="toc" class="sticky-top">
           <h5 class="text-muted">Table of Contents</h5>
         </nav>
+          <br>
       </div>
         <!-- main -->
 
      <div class="col-9">
          <form action="{{ url_for('wsc.create') }}", method="post">
-         <br><br><br>
-         <h2><label>Title</label></h2>
+         <h2 data-toc-skip><label>Title</label></h2data-toc-skip>
              <div class="form-group">
                 <div class="input-group col-lg">
                  {{ form.title(style="width: 800px;") }}
