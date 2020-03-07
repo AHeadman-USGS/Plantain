@@ -2,10 +2,11 @@ import os
 from flask import Blueprint, flash, g, redirect, render_template, request, url_for
 from app import app, db
 from flask_login import login_required
-from models import NationalRequired, ACCESS, require_access, National
+from models import ACCESS, require_access, National
 from national.forms import NationalEntry, NationalMaster
 
 natl = Blueprint('national', __name__, template_folder='templates')
+
 
 def get_entry_or_404(slug, author=None):
     query = National.query.filter(National.slug == slug)
@@ -14,7 +15,7 @@ def get_entry_or_404(slug, author=None):
 
 @natl.route('/')
 def index():
-    entry = NationalRequired.query.filter(NationalRequired.id == 1).first_or_404()
+    entry = National.query.filter(National.id == 1).first_or_404()
     return render_template('national/index.html', NationalRequired=entry)
 
 
@@ -39,10 +40,10 @@ def create():
     else:
         form = NationalMaster()
 
-    return render_template('national/create_new.html', form=form)
+    return render_template('national/create.html', form=form)
 
 
-@natl.route('/<slug>/edit', methods=['GET','POST'])
+@natl.route('/<slug>/edit', methods=['GET', 'POST'])
 @login_required
 @require_access(ACCESS['ADMIN'])
 def edit(slug):
@@ -55,6 +56,6 @@ def edit(slug):
         flash('Entry "%s" update.' % entry.title, 'success')
         return redirect(url_for('national.detail', slug=entry.slug))
     else:
-        form = NationalEntry(obj=entry)
+        form = NationalMaster(obj=entry)
 
     return render_template('national/edit.html', NationalRequired=entry, form=form)

@@ -18,18 +18,202 @@
       </div>
         <!-- main -->
      <div class="col-lg">
+         <h1>{{ NationalRequired.title }}</h1>
         <h2><label>Introduction</label></h2>
-    {{  NationalRequired.intro | safe }}
-         <h2><label>Scope</label></h2>
-    {{  NationalRequired.scope | safe }}
+            {{  NationalRequired.intro | safe }}
+
+
          <h2><label>Organization</label></h2>
-    {{  NationalRequired.org  | safe}}
+            {{  NationalRequired.org  | safe}}
+
+
          <h2><label>Responsibilities</label></h2>
-    {{  NationalRequired.resp  | safe }}
+            {{  NationalRequired.resp  | safe }}
+
+
+         <h2><label>Facilities</label></h2>
+            {{   NationalRequired.facilities | safe  }}
+
+
+         <h2><label>Laboratories</label></h2>
+             {{   NationalRequired.labs | safe  }}
+
+
+         <h2><label>Data-Quality Management</label></h2>
+            {{   NationalRequired.dq_management | safe  }}
+
+
+         <h3><label>Planning</label></h3>
+            {{   NationalRequired.dq_planning | safe  }}
+
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            {{   NationalRequired.dq_roles | safe  }}
+
+
+         <h4><label>Workflows</label></h4>
+            {{   NationalRequired.dq_workflows | safe  }}
+
+
+         <h5><label>Proposals</label></h5>
+            {{   NationalRequired.dq_wf_pro | safe  }}
+
+
+         <h5><label>Workplans</label></h5>
+            {{   NationalRequired.dq_wf_workplan | safe  }}
+
+
+         <h5><label>Project Data Management Plans</label></h5>
+            {{   NationalRequired.dq_wf_project_dmp | safe  }}
+
+
+         <h5><label>Project Reviews</label></h5>
+            {{   NationalRequired.dq_wf_review | safe  }}
+
+
+         <h4><label>Data Sharing Agreements</label></h4>
+            {{   NationalRequired.dq_datasharing | safe  }}
+
+
+         <h4><label>Memoranda of Understanding (MOUs)</label></h4>
+            {{   NationalRequired.dq_mous | safe  }}
+
+
+         <h4><label>Access Controls/Copyright</label></h4>
+            {{   NationalRequired.dq_access | safe  }}
+
+
+         <h3><label>Data Acquisition, Processing and Analysis</label></h3>
+            {{   NationalRequired.dq_aquisition | safe  }}
+
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            {{   NationalRequired.dq_aqu_roles | safe  }}
+
+
+        <h4><label>Procedures and Methods</label></h4>
+            {{   NationalRequired.dq_aqu_proc | safe  }}
+
+
+         <h5><label>Data Collection Procedures and Policies</label></h5>
+            {{   NationalRequired.dq_aqu_proc_coll | safe  }}
+
+
+          <h5><label>Data Processing Procedures and Policies</label></h5>
+            {{   NationalRequired.dq_aqu_proc_proc | safe  }}
+
+
+          <h5><label>Data Analysis Procedures and Policies</label></h5>
+            {{   NationalRequired.dq_aqu_proc_anal | safe  }}
+
+
+          <h4><label>Documentation</label></h4>
+            {{   NationalRequired.dq_doc | safe  }}
+
+
+         <h4><label>Data Formats</label></h4>
+            {{   NationalRequired.dq_format | safe  }}
+
+
+         <h4><label>Organization of Files/Data</label></h4>
+            {{   NationalRequired.dq_org | safe  }}
+
+
+         <h3><label>Data Preservation, Storage and Archive</label></h3>
+            {{   NationalRequired.dq_store | safe  }}
+
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            {{   NationalRequired.dq_store_roles | safe  }}
+
+
+         <h4><label>Repositories</label></h4>
+            {{   NationalRequired.dq_store_repo | safe  }}
+
+
+         <h4><label>Archiving</label></h4>
+            {{   NationalRequired.dq_store_archive | safe  }}
+
+
+         <h3><label>Publication/Sharing</label></h3>
+            {{   NationalRequired.dq_pubs | safe  }}
+
+
+         <h4><label>Roles and Responsibilities</label></h4>
+            {{   NationalRequired.dq_pubs_roles | safe  }}
+
+
+         <h4><label>Workflow</label></h4>
+            {{   NationalRequired.dq_pubs_workflow | safe  }}
+
+
+         <h4><label>Proprietary and Sensitive Data</label></h4>
+            {{   NationalRequired.dq_pubs_prop | safe  }}
+
+
+         <h4><label>Dissemination/Release</label></h4>
+            {{   NationalRequired.dq_pubs_release | safe  }}
+
+         <h4><label>Data Citation</label></h4>
+            {{   NationalRequired.dq_pubs_cite | safe  }}
+
+
+         <h4><label>Digital Object Identifiers</label></h4>
+            {{   NationalRequired.dq_pubs_doi | safe  }}
+
+
+         <h4><label>Metadata/Documentation</label></h4>
+            {{   NationalRequired.dq_pubs_meta | safe  }}
+
+         <h4><label>Data Catalogs</label></h4>
+            {{   NationalRequired.dq_pubs_catalog | safe  }}
+
+
+         <h2><label>Quality Assessment</label></h2>
+            {{   NationalRequired.qa_intro | safe  }}
+
+
+         <h3><label>Field Data Collection</label></h3>
+            {{   NationalRequired.qa_field_data | safe  }}
+
+
+         <h3><label>Provisional Time-Series Processing</label></h3>
+            {{   NationalRequired.qa_pro_ts | safe  }}
+
+
+         <h3><label>Approved Time-Series Data</label></h3>
+            {{   NationalRequired.qa_app_ts | safe  }}
+
+
+         <h3><label>Discrete Data Processing</label></h3>
+            {{   NationalRequired.qa_discrete | safe  }}
+
+
+         <h3><label>Database Integrity</label></h3>
+            {{   NationalRequired.qa_db_integrity | safe  }}
+
+
+         <h3><label>Furnished Records</label></h3>
+            {{   NationalRequired.qa_records | safe  }}
+
+         <h3><label>Interpretive Science</label></h3>
+            {{   NationalRequired.qa_interpretive | safe  }}
+
+
+         <h2><label>Training</label></h2>
+            {{   NationalRequired.qa_training | safe  }}
+
+
+         <h2><label>Terms</label></h2>
+            {{   NationalRequired.qa_terms | safe  }}
+
+
+         <h2><label>Resources</label></h2>
+            {{   NationalRequired.qa_resources | safe  }}
+
      </div>
       </div>
   </div>
-
 
 </main>
 {% endblock %}

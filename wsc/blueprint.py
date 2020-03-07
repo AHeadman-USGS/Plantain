@@ -1,14 +1,14 @@
 from flask import Blueprint, flash, g, redirect, render_template, request, url_for
 from flask_login import login_required
 from app import app, db
-from models import Project, NationalRequired, ACCESS, require_access
+from models import Project, National, ACCESS, require_access
 from wsc.forms import ProjectEntry, ProjectApprove
 
 wsc = Blueprint('wsc', __name__, template_folder='templates')
 
 
 def get_NatlReq():
-    query = NationalRequired.query.filter(NationalRequired.id == 1).first_or_404()
+    query = National.query.filter(National.id == 1).first_or_404()
     return query
 
 
